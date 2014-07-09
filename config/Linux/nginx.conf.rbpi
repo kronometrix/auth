@@ -1,0 +1,33 @@
+worker_processes  1;
+error_log logs/error.log;
+
+events {
+	use kqueue;
+	worker_connections 1024;
+
+http {
+	include       mime.types;
+	default_type  application/octet-stream;
+
+	# access_log logs/access.log.gz combined gzip flush=5m;
+
+        ## General Options
+	sendfile       on;
+	tcp_nopush     on;
+	tcp_nodelay    on;
+
+	keepalive_timeout 30;
+
+	gzip off;
+
+	lua_package_path ";;${prefix}../app/?.lua;";
+
+	server {
+		listen 9001;
+		index index.html;
+		root ../static;
+
+		# include application routes; this path is relative to this conf file!
+		include ../../app/conf/*.conf;
+	}
+}
