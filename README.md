@@ -1,4 +1,3 @@
-analytics-auth
-==============
+=SDR Analytics Authentication=
 
-SDR Analytics Authentication Binary Package
+The Authentication Binary Package
