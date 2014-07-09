@@ -1,7 +1,5 @@
 # SDR Analytics Authentication #
 
-The Authentication Binary Package, including:
- * OpenResty
- * Memcached
+This is the authentication binary package for **SDR Analytics** software. 
 
  
