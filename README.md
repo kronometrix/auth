@@ -1,3 +1,7 @@
-=SDR Analytics Authentication=
+# SDR Analytics Authentication #
 
-The Authentication Binary Package
+The Authentication Binary Package, including:
+ * OpenResty
+ * Memcached
+
+ 
