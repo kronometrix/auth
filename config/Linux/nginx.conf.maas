@@ -3,7 +3,7 @@ error_log logs/error.log;
 worker_rlimit_nofile 65000;
 
 events {
-	use kqueue;
+	use epoll;
 	worker_connections 4096;
         # kqueue_changes  4096;
 }
