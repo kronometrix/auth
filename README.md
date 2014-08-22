@@ -6,8 +6,13 @@ This is the authentication binary package for **SDR Analytics** software.
 * openresty-1.7.2.1
 * redis-2.8.13
 
+## Libs ##
+* lua-resty-smtp
+* lua-resty-template
+* router.lua
 
 ## Development ##
+To build SystemDataRecorder Analytics software will need certain OS libraries.
 
 ### Required Libraries ###
 
