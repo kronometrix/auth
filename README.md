@@ -11,10 +11,10 @@ This is the authentication binary package for **SDR Analytics** software.
 * lua-resty-template
 * router.lua
 
-## Development ##
+### Development ###
 To build SystemDataRecorder Analytics software will need certain OS libraries.
 
-### Required Libraries ###
+#### Required Libraries ####
 
 FreeBSD
 * openssl-1.0.1_13
