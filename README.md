@@ -12,9 +12,14 @@ This is the authentication binary package for **SDR Analytics** software.
 
 ### Required Libraries ###
 
+FreeBSD
+
+* openssl-1.0.1_13
+* pcre-8.34_1
+
 Linux
 
 * libpcre3-dev
 * libssl-dev
-* libevent-dev
+
  
