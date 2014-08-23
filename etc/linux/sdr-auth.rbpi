@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# chkconfig:   2345 20 88
-# description: SDR Auth Master script. Starts and stops authentication services
+# Description: SDR Auth Master script
+# Starts and stops authentication services
 
 # The MIT License (MIT)
 
@@ -31,14 +31,16 @@ OS_NAME=`uname -s`
 
 BASEDIR="/opt/sdr/analytics/auth"
 HTTP_CMD="${BASEDIR}/nginx/sbin/nginx"
-MCD_CMD="${BASEDIR}/bin/memcached"
-MCD_PID="${BASEDIR}/logs/memcached.pid"
+REDIS_CMD="${BASEDIR}/bin/redis-server"
+REDIS_CONF="${BASEDIR}/etc/redis.conf"
+REDISCLI_CMD="${BASEDIR}/bin/redis-cli"
+REDIS_PID="${BASEDIR}/logs/redis.pid"
 HTTP_CONF="${BASEDIR}/nginx/conf/nginx.conf"
 HTTP_PID="${BASEDIR}/nginx/logs/nginx.pid"
 NFCGI=1
 
 
-MODULES="http memcached"
+MODULES="http redis"
 
 # basedir test
 test -d ${BASEDIR} || exit 0
@@ -80,19 +82,19 @@ start() {
            ;;
 
 
-           # memcached server
-           memcached)
-            if [ -f ${MCD_PID} ]; then
-                kill -0 `cat ${MCD_PID}` >/dev/null 2>&1
+           # redis server
+           redis)
+            if [ -f ${REDIS_PID} ]; then
+                kill -0 `cat ${REDIS_PID}` >/dev/null 2>&1
                 if [ $? -eq  1 ]; then
-                    rm ${MCD_PID}
-                    $MCD_CMD -m 64 -p 11211 -u memcache -l 127.0.0.1 -d -P $MCD_PID &
+                    rm ${REDIS_PID}
+                    $REDIS_CMD $REDIS_CONF
                     RETVAL=$?
                 else
                     RETVAL=1
                 fi
             else
-                $MCD_CMD -m 64 -p 11211 -u memcache -l 127.0.0.1 -d -P $MCD_PID 2>/dev/null &
+                $REDIS_CMD $REDIS_CONF 2>/dev/null &
                 RETVAL=$?
             fi
 
@@ -100,7 +102,6 @@ start() {
            ;;
 
         esac
-        sleep 1
     done
 
     return $RETVAL
@@ -136,10 +137,10 @@ stop() {
             fi
            ;;
 
-           # memcached server
-           memcached)
-            if [ -f ${MCD_PID} ]; then
-                kill `cat ${MCD_PID}` >/dev/null 2>&1
+           # redis server
+           redis)
+            if [ -f ${REDIS_PID} ]; then
+                $REDISCLI_CMD shutdown >/dev/null 2>&1
                 RETVAL=$?
                 [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
             else
