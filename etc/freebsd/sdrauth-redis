@@ -67,8 +67,6 @@ start() {
 }
 
 
-
-
 stop() {
     echo "Stopping SDR Analytics auth Redis service"
 

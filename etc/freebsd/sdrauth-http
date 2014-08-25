@@ -33,8 +33,6 @@ HTTP_CMD="${BASEDIR}/nginx/sbin/nginx"
 HTTP_CONF="${BASEDIR}/nginx/conf/nginx.conf"
 HTTP_PID="${BASEDIR}/nginx/logs/nginx.pid"
 
-MODULES="http redis"
-
 # basedir test
 test -d ${BASEDIR} || exit 0
 
@@ -66,8 +64,6 @@ start() {
 
     return $RETVAL
 }
-
-
 
 
 stop() {
