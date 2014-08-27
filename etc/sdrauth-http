@@ -1,0 +1,106 @@
+#!/bin/sh
+
+# Description: SDR Auth HTTP Service script
+
+# The MIT License (MIT)
+
+# Copyright (c) 2014 SystemDataRecorder
+# Copyright (c) 2014 SDR Dynamics Oy
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+RETVAL=0
+OS_NAME=`uname -s`
+
+BASEDIR="/opt/sdr/analytics/auth"
+HTTP_CMD="${BASEDIR}/nginx/sbin/nginx"
+HTTP_CONF="${BASEDIR}/nginx/conf/nginx.conf"
+HTTP_PID="${BASEDIR}/nginx/logs/nginx.pid"
+
+# basedir test
+test -d ${BASEDIR} || exit 0
+
+
+start() {
+    echo "Starting SDR Analytics auth HTTP service"
+
+    if [ "X${OS_NAME}" = "XSunOS" ]; then
+        echo " ${rep} service: \c"
+    else
+        echo -n " ${rep} service: "
+    fi  
+
+    if [ -f ${HTTP_PID} ]; then
+        kill -0 `cat ${HTTP_PID}` >/dev/null 2>&1
+        if [ $? -eq  1 ]; then
+            rm ${HTTP_PID}
+            $HTTP_CMD -c $HTTP_CONF &
+            RETVAL=$?
+        else
+            RETVAL=1
+        fi
+    else
+        $HTTP_CMD -c $HTTP_CONF 2>/dev/null &
+        RETVAL=$?
+    fi
+
+    [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
+
+    return $RETVAL
+}
+
+
+stop() {
+    echo "Stopping SDR Analytics auth HTTP service"
+
+    if [ "X${OS_NAME}" = "XSunOS" ]; then
+        echo " ${rep} service: \c"
+    else
+        echo -n " ${rep} service: "
+    fi
+
+    if [ -f ${HTTP_PID} ]; then
+        kill `cat ${HTTP_PID}` >/dev/null 2>&1
+        RETVAL=$?
+        [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
+    else
+        RETVAL=1
+        [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
+    fi
+
+    return $RETVAL
+}
+
+
+case "$1" in
+   start)
+      start
+      ;;
+   stop)
+      stop
+      ;;
+   restart)
+      stop
+      start
+      ;;
+   *)
+      echo "Usage: $0 {start|stop|restart}"
+      exit 1
+esac
+exit $RETVAL
