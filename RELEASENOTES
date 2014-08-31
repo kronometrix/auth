@@ -1,6 +1,8 @@
 
 SystemDataRecorder Analytics Authentication Package
 
+Build 30
+    analytics/auth redis.conf AOF, RDB modes fix #3
 
 Build 29
     analytics/auth memcached removal #2
