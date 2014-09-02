@@ -1,6 +1,9 @@
 
 SystemDataRecorder Analytics Authentication Package
 
+Build 31
+    bugfix:  analytics/auth redis update 2.8.14 #4
+
 Build 30
     bugfix: analytics/auth redis.conf AOF, RDB modes fix #3
 
