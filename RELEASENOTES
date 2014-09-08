@@ -1,14 +1,22 @@
 
 SystemDataRecorder Analytics Authentication Package
 
+
+Build 32
+    change: analytics/auth openresty 1.7.4.1 RC2 update #5
+
+
 Build 31
-    bugfix:  analytics/auth redis update 2.8.14 #4
+    change: analytics/auth redis update 2.8.14 #4
+
 
 Build 30
     bugfix: analytics/auth redis.conf AOF, RDB modes fix #3
 
+
 Build 29
     bugfix: analytics/auth memcached removal #2
+
 
 Build 28
     bugfix: separate http and redis startup scripts #1
