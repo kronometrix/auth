@@ -2,28 +2,25 @@
 Authentication Package
 
 Build 32
-    change: analytics/auth redis update 2.8.15 #7 
-    change: analytics/auth lua-resty-smtp SMTP AUTH, SSL support #6
+  change: analytics/auth redis update 2.8.15 #7 
+  change: analytics/auth lua-resty-smtp SMTP AUTH, SSL support #6
 
 
 Build 32
-    change: analytics/auth openresty 1.7.4.1 RC2 update #5
+  change: analytics/auth openresty 1.7.4.1 RC2 update #5
 
 
 Build 31
-    change: analytics/auth redis update 2.8.14 #4
-<<<<<<< HEAD
-=======
+  change: analytics/auth redis update 2.8.14 #4
 
->>>>>>> 99ca5324f44a5324d2f2da10ed90c02241140528
 
 Build 30
-    bugfix: analytics/auth redis.conf AOF, RDB modes fix #3
+  bugfix: analytics/auth redis.conf AOF, RDB modes fix #3
 
 
 Build 29
-    bugfix: analytics/auth memcached removal #2
+  bugfix: analytics/auth memcached removal #2
 
 
 Build 28
-    bugfix: separate http and redis startup scripts #1
+  bugfix: separate http and redis startup scripts #1
