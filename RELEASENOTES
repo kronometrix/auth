@@ -1,6 +1,9 @@
 
 Authentication Package
 
+Build 33
+  change: analytics/auth redis update 2.8.17 #8
+
 Build 32
   change: analytics/auth redis update 2.8.15 #7 
   change: analytics/auth lua-resty-smtp SMTP AUTH, SSL support #6
