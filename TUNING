@@ -1,6 +1,15 @@
 Linux:
 
-Apply these settings under limits.conf:
+For Raspberry Pi:
+
+/boot/cmdline.txt:
+  smsc95xx.turbo_mode=N"
+
+/etc/sysctl.conf:
+
+  vm.min_free_kbytes = 16384
+
+/etc/limits.conf:
     sdr              soft    nofile         12288
     sdr              hard    nofile         24576
 
@@ -8,7 +17,6 @@ Make sure you have loaded pam_limits.so under login file:
    # Sets up user limits according to /etc/security/limits.conf
    # (Replaces the use of /etc/limits in old login)
    session    required   pam_limits.so
-
    
 
 FreeBSD:
