@@ -1,8 +1,13 @@
 
 Authentication Package
 
+Build 34
+  change: analytics/auth should include inspect.lua #9 
+
+
 Build 33
   change: analytics/auth redis update 2.8.17 #8
+
 
 Build 32
   change: analytics/auth redis update 2.8.15 #7 
