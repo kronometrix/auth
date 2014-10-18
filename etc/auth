@@ -29,26 +29,26 @@ RETVAL=0
 OS_NAME=`uname -s`
 
 BASEDIR="/opt/sdr/analytics/auth/etc"
-SDR_AUTH_HTTP="${BASEDIR}/sdrauth-http"
-SDR_AUTH_REDIS="${BASEDIR}/sdrauth-redis"
+AUTH_HTTP="${BASEDIR}/auth-http"
+AUTH_REDIS="${BASEDIR}/auth-redis"
 
 # basedir test
 test -d ${BASEDIR} || exit 0
-test -f ${SDR_AUTH_HTTP} || exit 0
-test -f ${SDR_AUTH_REDIS} || exit 0
+test -f ${AUTH_HTTP} || exit 0
+test -f ${AUTH_REDIS} || exit 0
 
 
 start() {
-    ${SDR_AUTH_HTTP} start
+    ${AUTH_HTTP} start
     sleep 1
-    ${SDR_AUTH_REDIS} start
+    ${AUTH_REDIS} start
 }
 
 
 stop() {
-    ${SDR_AUTH_HTTP} stop
+    ${AUTH_HTTP} stop
     sleep 1
-    ${SDR_AUTH_REDIS} stop
+    ${AUTH_REDIS} stop
 }
 
 
