@@ -14,8 +14,11 @@ http {
 
 	# access_log logs/access.log.gz combined gzip flush=5m;
 
+        resolver 8.8.8.8;
+
         ## General Options
-	sendfile       off;
+	sendfile       on;
+        sendfile_max_chunk  512k;
 	tcp_nopush     on;
 	tcp_nodelay    on;
 
@@ -23,7 +26,9 @@ http {
 
 	gzip off;
 
-	lua_package_path ";;${prefix}../app/?.lua;";
+        lua_package_path ";;${prefix}../app/?.lua;";
+        #lua_code_cache off;
+        lua_shared_dict sessions 10m;
 
 	server {
 		listen 9001;
