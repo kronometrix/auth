@@ -4,6 +4,7 @@ Authentication Package
 Build 35
   change: analytics/auth redis unix domain socket support #11
   change: analytics/auth startup script unix domain socket support #12
+  change: analytics/auth redis appendfsync off ARM based devices #13
 
 
 Build 34
