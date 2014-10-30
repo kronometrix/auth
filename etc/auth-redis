@@ -1,10 +1,8 @@
 #!/bin/sh
 
-# Description: SDR Auth Redis Service script
-
 # The MIT License (MIT)
 
-# Copyright (c) 2014 SystemDataRecorder
+# Copyright (c) 2014 SystemDataRecorder, Kronometrix
 # Copyright (c) 2014 SDR Dynamics Oy
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,6 +31,7 @@ REDIS_CMD="${BASEDIR}/bin/redis-server"
 REDIS_CONF="${BASEDIR}/etc/redis.conf"
 REDISCLI_CMD="${BASEDIR}/bin/redis-cli"
 REDIS_PID="${BASEDIR}/logs/redis.pid"
+REDIS_SOCK="${BASEDIR}/logs/auth.sock"
 
 # basedir test
 test -d ${BASEDIR} || exit 0
@@ -77,13 +76,20 @@ stop() {
         echo -n " ${rep} service: "
     fi
 
-    if [ -f ${REDIS_PID} ]; then
-        $REDISCLI_CMD shutdown >/dev/null 2>&1
+
+    if [ -e ${REDIS_SOCK} ]; then
+        $REDISCLI_CMD -s $REDIS_SOCK shutdown >/dev/null 2>&1
         RETVAL=$?
         [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
     else
-        RETVAL=1
-        [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
+        if [ -f ${REDIS_PID} ]; then
+            $REDISCLI_CMD shutdown >/dev/null 2>&1
+            RETVAL=$?
+            [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
+        else
+            RETVAL=1
+            [ $RETVAL -eq 0 ] && echo "ok" || echo "failed"
+        fi
     fi
 
     return $RETVAL
