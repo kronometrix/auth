@@ -1,20 +1,17 @@
-# SDR Analytics Authentication #
+# Kronometrix Analytics Authentication #
 
-This is the authentication binary package for **SDR Analytics** software. 
+This is the authentication binary package for **Kronometrix** software. 
 
 ## Modules ##
-* openresty-1.7.2.1
-* redis-2.8.13
+* Openresty
+* Redis
 
 ## Libs ##
 * lua-resty-smtp
 * lua-resty-template
 * router.lua
 
-### Development ###
-To build SystemDataRecorder Analytics software will need certain OS libraries.
-
-#### Required Libraries ####
+### Required Libraries ###
 
 FreeBSD
 * openssl-1.0.1_13
