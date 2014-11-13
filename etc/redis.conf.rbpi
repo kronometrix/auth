@@ -38,7 +38,7 @@ daemonize yes
 
 # When running daemonized, Redis writes a pid file in /var/run/redis.pid by
 # default. You can specify a custom pid file location here.
-pidfile /opt/sdr/analytics/auth/logs/redis.pid
+pidfile /opt/kronometrix/auth/logs/redis.pid
 
 # Accept connections on the specified port, default is 6379.
 # If port 0 is specified Redis will not listen on a TCP socket.
@@ -67,7 +67,7 @@ bind 127.0.0.1
 # incoming connections. There is no default, so Redis will not listen
 # on a unix socket when not specified.
 #
-unixsocket /opt/sdr/analytics/auth/logs/auth.sock
+unixsocket /opt/kronometrix/auth/logs/auth.sock
 unixsocketperm 755
 
 # Close the connection after a client is idle for N seconds (0 to disable)
@@ -100,7 +100,7 @@ loglevel notice
 # Specify the log file name. Also the empty string can be used to force
 # Redis to log on the standard output. Note that if you use standard
 # output for logging but daemonize, logs will be sent to /dev/null
-logfile "/opt/sdr/analytics/auth/logs/redis-server.log"
+logfile "/opt/kronometrix/auth/logs/redis-server.log"
 
 # To enable logging to the system logger, just set 'syslog-enabled' to yes,
 # and optionally update the other syslog parameters to suit your needs.
@@ -184,7 +184,7 @@ dbfilename auth.rdb
 # The Append Only File will also be created inside this directory.
 # 
 # Note that you must specify a directory here, not a file name.
-dir /opt/sdr/analytics/auth/logs/
+dir /opt/kronometrix/auth/logs/
 
 ################################# REPLICATION #################################
 

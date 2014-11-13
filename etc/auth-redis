@@ -2,7 +2,7 @@
 
 # The MIT License (MIT)
 
-# Copyright (c) 2014 SystemDataRecorder, Kronometrix
+# Copyright (c) 2014 Kronometrix
 # Copyright (c) 2014 SDR Dynamics Oy
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@
 RETVAL=0
 OS_NAME=`uname -s`
 
-BASEDIR="/opt/sdr/analytics/auth"
+BASEDIR="/opt/kronometrix/auth"
 REDIS_CMD="${BASEDIR}/bin/redis-server"
 REDIS_CONF="${BASEDIR}/etc/redis.conf"
 REDISCLI_CMD="${BASEDIR}/bin/redis-cli"
@@ -38,7 +38,7 @@ test -d ${BASEDIR} || exit 0
 
 
 start() {
-    echo "Starting SDR Analytics auth Redis service"
+    echo "Starting Kronometrix auth redis service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
@@ -67,7 +67,7 @@ start() {
 
 
 stop() {
-    echo "Stopping SDR Analytics auth Redis service"
+    echo "Stopping Kronometrix auth redis service"
 
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then

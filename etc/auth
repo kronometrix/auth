@@ -2,7 +2,7 @@
 
 # The MIT License (MIT)
 
-# Copyright (c) 2014 SystemDataRecorder, Kronometrix
+# Copyright (c) 2014 Kronometrix
 # Copyright (c) 2014 SDR Dynamics Oy
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@
 RETVAL=0
 OS_NAME=`uname -s`
 
-BASEDIR="/opt/sdr/analytics/auth/etc"
+BASEDIR="/opt/kronometrix/auth/etc"
 AUTH_HTTP="${BASEDIR}/auth-http"
 AUTH_REDIS="${BASEDIR}/auth-redis"
 
