@@ -13,3 +13,7 @@ if [ -f /etc/init.d/kronometrix.auth-redis ]; then
     /etc/init.d/kronometrix.auth-redis stop >/dev/null 2>&1 || :
     rm -f /etc/init.d/kronometrix.auth-redis || :
 fi
+
+if [ -f /etc/init.d/kronometrix.auth ]; then
+    rm -f /etc/init.d/kronometrix.auth || :
+fi
