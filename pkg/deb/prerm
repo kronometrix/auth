@@ -1,0 +1,15 @@
+#!/bin/sh
+
+update-rc.d -f kronometrix.auth-http remove >/dev/null 2>&1 || : 
+update-rc.d -f kronometrix.auth-redis remove >/dev/null 2>&1 || :
+
+# uinstall
+if [ -f /etc/init.d/kronometrix.auth-http ]; then
+    su - krmx -c "/etc/init.d/kronometrix.auth-http stop >/dev/null 2>&1" || :
+    rm -f /etc/init.d/kronometrix.auth-http || :
+fi
+
+if [ -f /etc/init.d/kronometrix.auth-redis ]; then
+    /etc/init.d/kronometrix.auth-redis stop >/dev/null 2>&1 || :
+    rm -f /etc/init.d/kronometrix.auth-redis || :
+fi
