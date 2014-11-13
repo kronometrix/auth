@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Kronometrix Authentication #
+=======
+# Kronometrix Analytics Authentication #
+>>>>>>> 832f2ac6c17b816a9acb73c1a14acb5e067d7cdd
 
 This is the authentication binary package for **Kronometrix** software. 
 
@@ -11,7 +15,10 @@ This is the authentication binary package for **Kronometrix** software.
 * lua-resty-template
 * router.lua
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 832f2ac6c17b816a9acb73c1a14acb5e067d7cdd
 ### Required Libraries ###
 
 FreeBSD
