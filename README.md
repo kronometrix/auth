@@ -1,7 +1,6 @@
 # Kronometrix Authentication #
 
-This is the authentication binary package for 
-**Kronometrix** software. 
+This is the authentication binary package for **Kronometrix** software.
 
 ## Modules ##
 * Openresty
