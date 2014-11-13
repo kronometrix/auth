@@ -10,8 +10,8 @@ For Raspberry Pi:
   vm.min_free_kbytes = 16384
 
 /etc/limits.conf:
-    sdr              soft    nofile         12288
-    sdr              hard    nofile         24576
+    krmx              soft    nofile         12288
+    krmx              hard    nofile         24576
 
 Make sure you have loaded pam_limits.so under login file:
    # Sets up user limits according to /etc/security/limits.conf
