@@ -27,8 +27,8 @@ RETVAL=0
 OS_NAME=`uname -s`
 
 BASEDIR="/opt/kronometrix/auth/etc"
-AUTH_HTTP="${BASEDIR}/auth-http"
-AUTH_REDIS="${BASEDIR}/auth-redis"
+AUTH_HTTP="${BASEDIR}/kronometrix.auth-http"
+AUTH_REDIS="${BASEDIR}/kronometrix.auth-redis"
 
 # basedir test
 test -d ${BASEDIR} || exit 0
