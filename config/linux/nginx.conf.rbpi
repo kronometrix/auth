@@ -25,7 +25,7 @@ http {
 	gzip off;
 
         lua_package_path ";;${prefix}../app/?.lua;";
-        #lua_code_cache off;
+        lua_code_cache on;
         lua_shared_dict sessions 10m;
 
 	server {
