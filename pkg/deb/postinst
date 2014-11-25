@@ -3,15 +3,15 @@
 # initial installation, after tasks
 chown -R krmx:krmx /opt/kronometrix/auth || :
 
-if [ ! -f /etc/init.d/kronometrix.auth-http ]; then
+if [ ! -L /etc/init.d/kronometrix.auth-http ]; then
     ln -s /opt/kronometrix/auth/etc/kronometrix.auth-http /etc/init.d/kronometrix.auth-http || :
 fi
 
-if [ ! -f /etc/init.d/kronometrix.auth-redis ]; then
+if [ ! -L /etc/init.d/kronometrix.auth-redis ]; then
     ln -s /opt/kronometrix/etc/kronometrix.auth-redis /etc/init.d/kronometrix.auth-redis || :
 fi
 
-if [ ! -f /etc/init.d/kronometrix.auth ]; then
+if [ ! -L /etc/init.d/kronometrix.auth ]; then
     ln -s /opt/kronometrix/etc/kronometrix.auth /etc/init.d/kronometrix.auth || :
 fi
 
