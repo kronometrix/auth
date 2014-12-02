@@ -38,7 +38,7 @@ test -d ${BASEDIR} || exit 0
 
 
 start() {
-    echo "Starting Kronometrix auth redis service"
+    echo "Starting Kronometrix auth db service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
@@ -67,7 +67,7 @@ start() {
 
 
 stop() {
-    echo "Stopping Kronometrix auth redis service"
+    echo "Stopping Kronometrix auth db service"
 
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
