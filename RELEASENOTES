@@ -1,6 +1,12 @@
 
 Authentication Package
 
+
+Build 40:
+  change: kronometrix/auth redis 2.8.19 update #3
+  change: kronometrix/auth openresty 1.7.7.1 update #2
+
+
 Build 35
   change: analytics/auth redis unix domain socket support #11
   change: analytics/auth startup script unix domain socket support #12
