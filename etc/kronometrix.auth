@@ -28,25 +28,25 @@ OS_NAME=`uname -s`
 
 BASEDIR="/opt/kronometrix/auth/etc"
 AUTH_HTTP="${BASEDIR}/kronometrix.auth-http"
-AUTH_REDIS="${BASEDIR}/kronometrix.auth-redis"
+AUTH_DB="${BASEDIR}/kronometrix.auth-db"
 
 # basedir test
 test -d ${BASEDIR} || exit 0
 test -f ${AUTH_HTTP} || exit 0
-test -f ${AUTH_REDIS} || exit 0
+test -f ${AUTH_DB} || exit 0
 
 
 start() {
     ${AUTH_HTTP} start
     sleep 1
-    ${AUTH_REDIS} start
+    ${AUTH_DB} start
 }
 
 
 stop() {
     ${AUTH_HTTP} stop
     sleep 1
-    ${AUTH_REDIS} stop
+    ${AUTH_DB} stop
 }
 
 
