@@ -29,6 +29,7 @@ OS_NAME=`uname -s`
 BASEDIR="/opt/kronometrix/auth/etc"
 AUTH_HTTP="${BASEDIR}/kronometrix.auth-http"
 AUTH_DB="${BASEDIR}/kronometrix.auth-db"
+KRMX_USER="krmx"
 
 # basedir test
 test -d ${BASEDIR} || exit 0
@@ -37,16 +38,16 @@ test -f ${AUTH_DB} || exit 0
 
 
 start() {
-    ${AUTH_HTTP} start
+    su - $KRMX_USER -c "${AUTH_HTTP} start >/dev/null 2>&1"
     sleep 1
-    ${AUTH_DB} start
+    su - $KRMX_USER -c "${AUTH_DB} start >/dev/null 2>&1"
 }
 
 
 stop() {
-    ${AUTH_HTTP} stop
+    su - $KRMX_USER -c "${AUTH_HTTP} stop >/dev/null 2>&1"
     sleep 1
-    ${AUTH_DB} stop
+    su - $KRMX_USER -c "${AUTH_DB} stop >/dev/null 2>&1"
 }
 
 

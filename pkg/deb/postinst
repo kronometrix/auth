@@ -3,25 +3,15 @@
 # initial installation, after tasks
 chown -R krmx:krmx /opt/kronometrix/auth || :
 
-if [ ! -L /etc/init.d/kronometrix.auth-http ]; then
-    ln -s /opt/kronometrix/auth/etc/kronometrix.auth-http /etc/init.d/kronometrix.auth-http || :
-fi
-
-if [ ! -L /etc/init.d/kronometrix.auth-redis ]; then
-    ln -s /opt/kronometrix/auth/etc/kronometrix.auth-redis /etc/init.d/kronometrix.auth-redis || :
-fi
-
 if [ ! -L /etc/init.d/kronometrix.auth ]; then
     ln -s /opt/kronometrix/auth/etc/kronometrix.auth /etc/init.d/kronometrix.auth || :
 fi
 
-# link here kronometrix.auth-http
-update-rc.d kronometrix.auth-http start 20 2 3 4 5 . stop 20 0 1 6 . >/dev/null 2>&1 || :
-
-# link here kronometrix.auth-redis
-update-rc.d kronometrix.auth-redis start 20 2 3 4 5 . stop 20 0 1 6 . >/dev/null 2>&1 || :
+# link here kronometrix.auth
+update-rc.d kronometrix.auth start 20 2 3 4 5 . stop 20 0 1 6 . >/dev/null 2>&1 || :
 
 if [ -d /opt/kronometrix/auth/logs ]; then
     chown -R krmx:krmx /opt/kronometrix/auth/logs || :
 fi
-su - krmx -c "/etc/init.d/kronometrix.auth start >/dev/null 2>&1" || :
+
+/etc/init.d/kronometrix.auth start >/dev/null 2>&1 || :

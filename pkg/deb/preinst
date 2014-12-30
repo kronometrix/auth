@@ -4,7 +4,7 @@
 # initial installation
 if [ -f /etc/init.d/kronometrix.auth ]; then
     # echo "preinst: stopping kronometrix auth..."
-    su - krmx -c "/etc/init.d/kronometrix.auth stop >/dev/null 2>&1" || :
+    /etc/init.d/kronometrix.auth stop >/dev/null 2>&1 || :
 fi
 
 if ! getent group krmx >/dev/null; then
