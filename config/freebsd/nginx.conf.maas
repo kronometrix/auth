@@ -4,8 +4,7 @@ worker_rlimit_nofile 65000;
 
 events {
 	use kqueue;
-	worker_connections 4096;
-        # kqueue_changes  4096;
+	worker_connections 32768;
 }
 
 http {
