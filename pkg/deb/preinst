@@ -2,9 +2,9 @@
 
 # echo "preinst: preparing to install package"
 # initial installation
-if [ -f /etc/init.d/kronometrix.auth ]; then
+if [ -f /etc/init.d/kronometrix_auth ]; then
     # echo "preinst: stopping kronometrix auth..."
-    /etc/init.d/kronometrix.auth stop >/dev/null 2>&1 || :
+    /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
 fi
 
 if ! getent group krmx >/dev/null; then
