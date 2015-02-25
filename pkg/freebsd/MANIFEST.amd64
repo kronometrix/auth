@@ -1,5 +1,5 @@
 name: "kronometrix-auth"
-version: "1.0"
+version: "1.0.0"
 origin: "sysutils/kronometrix-auth"
 comment: "A time-series data monitoring and analysis system. Authentication Module"
 arch: "freebsd:10:amd64" 
@@ -13,4 +13,4 @@ users: [
 groups: [
     "krmx"
 ]
-licenses: ["GPL"]
+licenses: ["MIT"]
