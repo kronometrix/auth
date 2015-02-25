@@ -27,8 +27,8 @@ RETVAL=0
 OS_NAME=`uname -s`
 
 BASEDIR="/opt/kronometrix/auth/etc"
-AUTH_HTTP="${BASEDIR}/kronometrix.auth-http"
-AUTH_DB="${BASEDIR}/kronometrix.auth-db"
+AUTH_HTTP="${BASEDIR}/http"
+AUTH_DB="${BASEDIR}/db"
 KRMX_USER="krmx"
 
 # basedir test
