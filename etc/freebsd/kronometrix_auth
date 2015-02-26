@@ -36,7 +36,7 @@ start_cmd="${name}_start"
 stop_cmd="${name}_stop"
 status_cmd="${name}_status"
 
-: ${kronometrix_auth_enable="NO"}
+: ${kronometrix_auth_enable="YES"}
 : ${kronometrix_auth_user="krmx"}
 : ${kronometrix_auth_args=""}
 
