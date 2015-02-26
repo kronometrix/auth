@@ -7,9 +7,10 @@ This is the authentication binary package for **Kronometrix** software.
 * Redis
 
 ## Libs ##
-* lua-resty-smtp
+* lua-resty-http-simple
 * lua-resty-template
 * router.lua
+* inspect.lua (development mode)
 
 ### Required Libraries ###
 
@@ -20,5 +21,6 @@ FreeBSD
 Linux
 * libpcre3-dev
 * libssl-dev
+
 
  
