@@ -24,6 +24,7 @@ if [ $2 == "POST-INSTALL" ]; then
     if [ $? -eq 1 ]; then
         # add the service
         echo "kronometrix_auth=\"YES\"" >> ${RC_CONF}
+        echo "kronometrix_auth_user=\"krmx\"" >> ${RC_CONF}
         if [ $? -eq 1 ]; then
             echo "Error: cannot activate service, exit now"
             exit 1
