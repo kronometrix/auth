@@ -26,7 +26,7 @@ Linux
 ## Installation
 
 
-### FreeBSD 10 amd64
+#### FreeBSD 10 amd64
 ```
 # pkg install /var/tmp/kronometrix-auth-1.0.0b49-freebsd10.1-amd64.txz 
 Updating FreeBSD repository catalogue...
