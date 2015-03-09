@@ -4,7 +4,7 @@
 chown -R krmx:krmx /opt/kronometrix/auth || :
 
 if [ ! -L /etc/init.d/kronometrix_auth ]; then
-    ln -s /opt/kronometrix/auth/etc/kronometrix_auth /etc/init.d/kronometrix_auth || :
+    ln -s /opt/kronometrix/auth/etc/rc/kronometrix_auth /etc/init.d/kronometrix_auth || :
 fi
 
 # link here kronometrix.auth
