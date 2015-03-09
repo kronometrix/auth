@@ -2,7 +2,7 @@
 
 # echo "preinst: preparing to install package"
 # initial installation
-if [ -f /etc/init.d/kronometrix_auth ]; then
+if [ -L /etc/init.d/kronometrix_auth ]; then
     /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
 fi
 
