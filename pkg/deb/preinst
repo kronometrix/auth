@@ -7,7 +7,7 @@ if [ -L /etc/init.d/kronometrix_auth ]; then
 fi
 
 if ! getent group krmx >/dev/null; then
-        groupadd -u 5000 krmx || :
+        groupadd -g 5000 krmx || :
 fi
 
 if ! getent passwd krmx >/dev/null; then
