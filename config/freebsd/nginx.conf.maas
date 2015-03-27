@@ -16,10 +16,9 @@ http {
         resolver 8.8.8.8;
 
         ## General Options
-	sendfile       off;
-        sendfile_max_chunk  512k;
-	tcp_nopush     on;
-	tcp_nodelay    on;
+        sendfile       off;   # disable double caching for ZFS
+        tcp_nopush     off;   # sendfile=off so tcp_nopush can not be used
+        tcp_nodelay    on;
 
 	keepalive_timeout 30;
 
