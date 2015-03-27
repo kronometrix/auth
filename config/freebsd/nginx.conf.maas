@@ -1,10 +1,10 @@
 worker_processes  2;
 error_log logs/error.log;
-worker_rlimit_nofile 65000;
+worker_rlimit_nofile 8192;
 
 events {
 	use kqueue;
-	worker_connections 32768;
+	worker_connections 8192;
 }
 
 http {
@@ -16,7 +16,7 @@ http {
         resolver 8.8.8.8;
 
         ## General Options
-	sendfile       on;
+	sendfile       off;
         sendfile_max_chunk  512k;
 	tcp_nopush     on;
 	tcp_nodelay    on;
