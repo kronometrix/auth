@@ -59,10 +59,10 @@ rm -rf $RPM_BUILD_ROOT
 # Then we create the directories where the files go
 # don't worry if the directories exist on your target systems, rpm
 # creates if necessary
-mkdir -p $RPM_BUILD_ROOT/opt/kronometrix/auth
+mkdir -p $RPM_BUILD_ROOT/opt/kronometrix
 
 # The actual moving
-cp -a * $RPM_BUILD_ROOT/opt/kronometrix/auth
+cp -a * $RPM_BUILD_ROOT/opt/kronometrix
 
 
 %clean
