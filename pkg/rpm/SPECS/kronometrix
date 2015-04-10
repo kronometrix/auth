@@ -21,13 +21,13 @@
 %endif
 
 
-Summary: Kronometrix Data Recording
-Name: kronometrix
-Version: 1.0.12
+Summary: Kronometrix Analytics Appliance Authentication
+Name: kronometrix-auth
+Version: 1.0.0
 Release: 0
 Group: System/Monitoring/Tools
-License: GPL
-URL: http://www.kronometrix.org/
+License: MIT
+URL: http://www.kronometrix.com/
 Source: %{name}-%{version}-%{_arch}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-root-%(%{__id_u} -n)
 AutoReqProv: no
@@ -59,10 +59,10 @@ rm -rf $RPM_BUILD_ROOT
 # Then we create the directories where the files go
 # don't worry if the directories exist on your target systems, rpm
 # creates if necessary
-mkdir -p $RPM_BUILD_ROOT/opt/kronometrix
+mkdir -p $RPM_BUILD_ROOT/opt/kronometrix/auth
 
 # The actual moving
-cp -a * $RPM_BUILD_ROOT/opt/kronometrix
+cp -a * $RPM_BUILD_ROOT/opt/kronometrix/auth
 
 
 %clean
@@ -71,18 +71,14 @@ rm -rf "$RPM_BUILD_ROOT"
 
 %files
 %defattr(755,krmx,krmx)
-/opt/kronometrix/*
+/opt/kronometrix/auth/*
 
 # before install
 %pre
 if [ $1 -eq 1 ]; then
     # initial installation
-    if [ -f /etc/init.d/kronometrix ]; then
-        /etc/init.d/kronometrix stop >/dev/null 2>&1 || :
-    fi
-
-    if [ -f /etc/init.d/kronometrix_transport ]; then
-        /etc/init.d/kronometrix_transport stop >/dev/null 2>&1 || :
+    if [ -f /etc/init.d/kronometrix_auth ]; then
+        /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
     fi
 
     if ! getent group krmx >/dev/null; then
@@ -93,18 +89,13 @@ if [ $1 -eq 1 ]; then
         useradd -u 5000 -g krmx -d /home/krmx -m krmx || :
     fi
 
-    if [ ! -d /opt/kronometrix ]; then
-        mkdir -p /opt/kronometrix || :
+    if [ ! -d /opt/kronometrix/auth ]; then
+        mkdir -p /opt/kronometrix/auth || :
     fi
 elif [ $1 -eq 2 ]; then
     # upgrade
-    if [ -f /etc/init.d/kronometrix ]; then
-        /etc/init.d/kronometrix stop >/dev/null 2>&1 || :
-    fi
-
-    # check for old installs
-    if [ -f /etc/init.d/kronometrix_transport ]; then
-        /etc/init.d/kronometrix_transport stop >/dev/null 2>&1 || :
+    if [ -f /etc/init.d/kronometrix/auth ]; then
+        /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
     fi
 
     if ! getent group krmx >/dev/null; then
@@ -123,78 +114,30 @@ fi
 %post
 if [ $1 -eq 1 ]; then
     # initial installation, after tasks
-    chown -R krmx:krmx /opt/kronometrix || :
-    if [ ! -L /etc/init.d/kronometrix ]; then
-        ln -s /opt/kronometrix/etc/rc/kronometrix /etc/init.d/kronometrix || :
+    chown -R krmx:krmx /opt/kronometrix/auth || :
+    if [ ! -L /etc/init.d/kronometrix_auth ]; then
+        ln -s /opt/kronometrix/auth/etc/rc/kronometrix_auth /etc/init.d/kronometrix_auth || :
     fi
 
-    if [ ! -L /etc/init.d/kronometrix_transport ]; then
-        ln -s /opt/kronometrix/etc/rc/kronometrix_transport /etc/init.d/kronometrix_transport || :
-    fi
-    chkconfig --add kronometrix || :
-    chkconfig --add kronometrix_transport || :
-    /etc/init.d/kronometrix start >/dev/null 2>&1 || :
-    # /etc/init.d/kronometrix.transport start || :
-    chown -R krmx:krmx /opt/kronometrix/log || :
+    chkconfig --add kronometrix_auth || :
+    /etc/init.d/kronometrix_auth start >/dev/null 2>&1 || :
+    # chown -R krmx:krmx /opt/kronometrix/auth || :
 
-    # cronjobs
-    if ! grep krmx /etc/cron.allow >/dev/null; then
-        echo "krmx" >> /etc/cron.allow || :
-    fi
-
-    crontab -u krmx -l > /var/tmp/cronkrmx 2>/dev/null || :
-    echo "59 23 * * *  /bin/sleep 59 && /usr/sbin/logrotate -f -s /opt/kronometrix/log/logkrmx.status /opt/kronometrix/etc/logrotate.krmx" >> /var/tmp/cronkrmx || :
-    echo "00 00 * * *  /bin/sleep 30 && /opt/kronometrix/bin/raw2day" >> /var/tmp/cronkrmx || :
-    crontab -u krmx /var/tmp/cronkrmx 2>/dev/null || :
-
-    # restore config
-    if [ -f /opt/kronometrix/backup/kronometrix.json ]; then
-        cp /opt/kronometrix/backup/kronometrix.json /opt/kronometrix/etc || :
-    fi
 elif [ $1 -eq 2 ]; then
     # upgrade
-    chown -R krmx:krmx /opt/kronometrix || :
-    /etc/init.d/kronometrix start >/dev/null 2>&1 || :
-    # /etc/init.d/kronometrix.transport start || :
-
-    chown -R krmx:krmx /opt/kronometrix || :
+    chown -R krmx:krmx /opt/kronometrix/auth || :
+    /etc/init.d/kronometrix_auth start >/dev/null 2>&1 || :
 fi
 
 # before removal
 %preun
 if [ $1 -eq 0 ]; then
-    chkconfig kronometrix off || :
-    chkconfig kronometrix_transport off || :
-    chkconfig --del kronometrix || :
-    chkconfig --del kronometrix_transport || :
-
-    # check for old installs
-    if [ -f /etc/init.d/kronometrix_transport ]; then
-        /etc/init.d/kronometrix_transport stop >/dev/null 2>&1 || :
-        chkconfig kronometrix_transport off || :
-        chkconfig --del kronometrix_transport || :
-        rm -f /etc/init.d/kronometrix_transport || :
-    fi
+    chkconfig kronometrix_auth off || :
+    chkconfig --del kronometrix_auth || :
 
     # uinstall
-    if [ -f /etc/init.d/kronometrix ]; then
-        /etc/init.d/kronometrix stop >/dev/null 2>&1 || :
-        rm -f /etc/init.d/kronometrix || :
-    fi
-
-    if [ -f /etc/init.d/kronometrix_transport ]; then
-        /etc/init.d/kronometrix_transport stop >/dev/null 2>&1 || :
-        rm -f /etc/init.d/kronometrix_transport || :
-    fi
-
-    # wipeout krmx crontab
-    crontab -u krmx -r  2>/dev/null || :
-
-    # make a copy of kronometrix.json
-    if [ -f /opt/kronometrix/etc/kronometrix.json ]; then
-        if [ ! -d /opt/kronometrix/backup ]; then
-            mkdir /opt/kronometrix/backup
-        fi
-        cp /opt/kronometrix/etc/kronometrix.json /opt/kronometrix/backup || :
+    if [ -f /etc/init.d/kronometrix_auth ]; then
+        /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
+        rm -f /etc/init.d/kronometrix_auth || :
     fi
 fi
