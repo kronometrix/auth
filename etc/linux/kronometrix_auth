@@ -38,9 +38,9 @@ test -f ${AUTH_DB} || exit 0
 
 
 start() {
-    su - $KRMX_USER -c "${AUTH_HTTP} start >/dev/null 2>&1"
-    sleep 1
     su - $KRMX_USER -c "${AUTH_DB} start >/dev/null 2>&1"
+    sleep 1
+    su - $KRMX_USER -c "${AUTH_HTTP} start >/dev/null 2>&1"
 }
 
 
