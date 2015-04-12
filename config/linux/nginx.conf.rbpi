@@ -3,7 +3,6 @@ error_log logs/error.log;
 
 events {
 	use epoll;
-	worker_connections 8192;
 }
 
 http {
