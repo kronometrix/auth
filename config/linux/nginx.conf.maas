@@ -1,6 +1,5 @@
 worker_processes  2;
 error_log logs/error.log;
-# worker_rlimit_nofile 8192;
 
 events {
 	use epoll;
