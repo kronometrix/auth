@@ -94,7 +94,7 @@ if [ $1 -eq 1 ]; then
     fi
 elif [ $1 -eq 2 ]; then
     # upgrade
-    if [ -f /etc/init.d/kronometrix/auth ]; then
+    if [ -f /etc/init.d/kronometrix_auth ]; then
         /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
     fi
 
@@ -107,8 +107,6 @@ elif [ $1 -eq 2 ]; then
     fi
 
 fi
-# echo krmx123|passwd --stdin krmx
-
 
 # after install
 %post
