@@ -1,41 +1,50 @@
 
 Authentication Package
 
+
+1.0.0 b70
+  auth redis 3.0.0 update #19
+
+1.0.0 b60
+  nginx optimizations: turn off sendfile on ZFS #18
+  auth preinst script on debian must check for /opt #17
+  auth does not properly install under Debian systems #16
+  
 1.0.0 b52
-  change: kronometrix/auth openresty 1.7.10.1 update #12
-  change: kronometrix/auth lua-resty-template update #13
-  change: kronometrix/auth lua-resty-http-simple update #14
-  bugfix: kronometrix/auth redis.conf turn off AOF #15
+  kronometrix/auth openresty 1.7.10.1 update #12
+  kronometrix/auth lua-resty-template update #13
+  kronometrix/auth lua-resty-http-simple update #14
+  kronometrix/auth redis.conf turn off AOF #15
 
 1.0.0 b40
-  change: kronometrix/auth redis 2.8.19 update #3
-  change: kronometrix/auth openresty 1.7.7.1 update #2
+  kronometrix/auth redis 2.8.19 update #3
+  kronometrix/auth openresty 1.7.7.1 update #2
 
 1.0.0 b36
-  change: analytics/auth redis unix domain socket support #11
-  change: analytics/auth startup script unix domain socket support #12
-  change: analytics/auth redis appendfsync off ARM based devices #13
+  analytics/auth redis unix domain socket support #11
+  analytics/auth startup script unix domain socket support #12
+  analytics/auth redis appendfsync off ARM based devices #13
 
 1.0.0 b34
-  change: analytics/auth should include inspect.lua #9
-  change: analytics/auth openresty 1.7.4.1 update #10
+  analytics/auth should include inspect.lua #9
+  analytics/auth openresty 1.7.4.1 update #10
 
 1.0.0 b33
-  change: analytics/auth redis update 2.8.17 #8
+  analytics/auth redis update 2.8.17 #8
 
 1.0.0 b32
-  change: analytics/auth redis update 2.8.15 #7 
-  change: analytics/auth lua-resty-smtp SMTP AUTH, SSL support #6
-  change: analytics/auth openresty 1.7.4.1 RC2 update #5
+  analytics/auth redis update 2.8.15 #7 
+  analytics/auth lua-resty-smtp SMTP AUTH, SSL support #6
+  analytics/auth openresty 1.7.4.1 RC2 update #5
 
 1.0.0 b31
-  change: analytics/auth redis update 2.8.14 #4
+  analytics/auth redis update 2.8.14 #4
 
 1.0.0 b30
-  bugfix: analytics/auth redis.conf AOF, RDB modes fix #3
+  analytics/auth redis.conf AOF, RDB modes fix #3
 
 1.0.0 b29
-  bugfix: analytics/auth memcached removal #2
+  analytics/auth memcached removal #2
 
 1.0.0 b28
-  bugfix: separate http and redis startup scripts #1
+  separate http and redis startup scripts #1
