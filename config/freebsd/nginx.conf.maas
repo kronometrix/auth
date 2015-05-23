@@ -1,11 +1,18 @@
-worker_processes  2;
+worker_processes  1;
+# worker_cpu_affinity 0100;
 error_log logs/error.log;
 
 events {
 	use kqueue;
+        worker_connections 1024;
 }
 
 http {
+        upstream kernel {
+                server 127.0.0.1:9002;
+                keepalive 32;
+        }
+
 	include       mime.types;
 	default_type  application/octet-stream;
 
