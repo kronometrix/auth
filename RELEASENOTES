@@ -1,6 +1,9 @@
 
 Authentication Package
 
+1.0.0 
+    auth redis 3.0.2 update #22
+
 1.0.0 b80
     Take advangate of resty.core, and an init file #20
     upstream kernel and keep-alive settings #21
