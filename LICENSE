@@ -48,15 +48,20 @@ may NOT be included in any other commercial or non commercial software packages 
 
 3. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.
 
-Limitations on Reverse Engineering, Decompilation, Disassembly and change 
+Limitations on Reverse Engineering, Decompilation, Disassembly, and change 
 (add, delete or modify) the resources in the compiled the assembly. You may not
 reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, except and 
 only to the extent that such activity is expressly permitted by applicable law 
 not withstanding this limitation.
 
+Limitations on Authorization, Kernel and Messenger Lua components. You may not 
+add, delete, change or modify the SOFTWARE PRODUCT in the scripted format 
+except and only to the extent that such activity is expressly permitted by 
+applicable law not withstanding this limitation.
+
 Update and Maintenance
 Kronometrix Analytics Appliance security updates are FREE of charge. All other
-upgrades will require a service support contrat.
+upgrades will require a separate service support contrat.
 
 Separation of Components.
 The SOFTWARE PRODUCT is licensed as a single product, identified by the 
