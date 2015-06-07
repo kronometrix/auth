@@ -37,16 +37,16 @@ test -f ${AUTH_DB} || exit 0
 
 
 start() {
-    ${AUTH_DB} start >/dev/null 2>&1
+    ${AUTH_DB} start
     sleep 1
-    ${AUTH_HTTP} start >/dev/null 2>&1
+    ${AUTH_HTTP} start
 }
 
 
 stop() {
-    ${AUTH_HTTP} stop >/dev/null 2>&1
+    ${AUTH_HTTP} stop
     sleep 1
-    ${AUTH_DB} stop >/dev/null 2>&1
+    ${AUTH_DB} stop
 }
 
 
