@@ -1,6 +1,10 @@
 
 Authentication Package
 
+1.0.110
+    update openresty 1.7.10.2 #12
+    update redis 3.0.3
+
 1.0.0 b102
     auth redis 3.0.2 update #22
 
