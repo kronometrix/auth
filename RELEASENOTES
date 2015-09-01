@@ -1,5 +1,8 @@
 
-Authentication Package
+Authenticator Package
+
+1.0.115
+    kronometrix to kauth
 
 1.0.110
     update openresty-1.7.10.2 #23
