@@ -15,16 +15,16 @@ fi
 
 if [ $2 == "POST-INSTALL" ]; then
     chown -R krmx:krmx /opt/kronometrix/auth
-    cp /opt/kronometrix/auth/etc/rc/kronometrix_auth /etc/rc.d/
-    /etc/rc.d/kronometrix_auth onestart
+    cp /opt/kronometrix/auth/etc/rc/kauth /etc/rc.d/
+    /etc/rc.d/kauth onestart
 
     # install service
-    grep kronometrix_auth ${RC_CONF} >/dev/null 2>&1
+    grep kauth ${RC_CONF} >/dev/null 2>&1
 
     if [ $? -eq 1 ]; then
         # add the service
-        echo "kronometrix_auth=\"YES\"" >> ${RC_CONF}
-        echo "kronometrix_auth_user=\"krmx\"" >> ${RC_CONF}
+        echo "kauth=\"YES\"" >> ${RC_CONF}
+        echo "kauth_user=\"krmx\"" >> ${RC_CONF}
         if [ $? -eq 1 ]; then
             echo "Error: cannot activate service, exit now"
             exit 1
