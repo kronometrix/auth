@@ -21,13 +21,13 @@
 #
 # Add the following lines to /etc/rc.conf to enable Kronometrix
 #
-# kronometrix_auth_enable="YES"
-# kronometrix_auth_user="krmx"
+# kauth_enable="YES"
+# kauth_user="krmx"
 
 . /etc/rc.subr
 
-name=kronometrix_auth
-rcvar=kronometrix_auth_enable
+name=kauth
+rcvar=kauth_enable
 
 load_rc_config ${name}
 
@@ -36,24 +36,24 @@ start_cmd="${name}_start"
 stop_cmd="${name}_stop"
 status_cmd="${name}_status"
 
-: ${kronometrix_auth_enable="YES"}
-: ${kronometrix_auth_user="krmx"}
-: ${kronometrix_auth_args=""}
+: ${kauth_enable="YES"}
+: ${kauth_user="krmx"}
+: ${kauth_args=""}
 
-kronometrix_auth_start() {
+kauth_start() {
     unset "${rc_arg}_cmd"
     local cmd
-    kronometrix_auth_args="start"
-    cmd="${command} ${kronometrix_auth_args}"
-    su -m ${kronometrix_auth_user} -c "${cmd}" 
+    kauth_args="start"
+    cmd="${command} ${kauth_args}"
+    su -m ${kauth_user} -c "${cmd}" 
 }
 
 
-kronometrix_auth_stop() {
+kauth_stop() {
     local cmd
-    kronometrix_auth_args="stop"
-    cmd="${command} ${kronometrix_auth_args}"
-    su -m ${kronometrix_auth_user} -c "${cmd}"
+    kauth_args="stop"
+    cmd="${command} ${kauth_args}"
+    su -m ${kauth_user} -c "${cmd}"
 }
 
 
