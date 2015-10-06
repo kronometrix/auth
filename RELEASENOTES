@@ -1,66 +1,10 @@
 
-Authenticator Package
+Kronometrix Authenticator Package
 
-1.0.115
-    kronometrix to kauth
+Releases
 
-1.0.110
-    update openresty-1.7.10.2 #23
-    update redis-3.0.3 #24
+  1.3.1
+    update redis-3.0.4 
 
-1.0.0 b102
-    auth redis 3.0.2 update #22
-
-1.0.0 b80
-    Take advangate of resty.core, and an init file #20
-    upstream kernel and keep-alive settings #21
-
-1.0.0 b71
-    auth redis 3.0.1 update #19
-
-1.0.0 b70
-    auth redis 3.0.0 update #19
-
-1.0.0 b60
-    nginx optimizations: turn off sendfile on ZFS #18
-    auth preinst script on debian must check for /opt #17
-    auth does not properly install under Debian systems #16
-  
-1.0.0 b52
-    kronometrix/auth openresty 1.7.10.1 update #12
-    kronometrix/auth lua-resty-template update #13
-    kronometrix/auth lua-resty-http-simple update #14
-    kronometrix/auth redis.conf turn off AOF #15
-
-1.0.0 b40
-    kronometrix/auth redis 2.8.19 update #3
-    kronometrix/auth openresty 1.7.7.1 update #2
-
-1.0.0 b36
-    analytics/auth redis unix domain socket support #11
-    analytics/auth startup script unix domain socket support #12
-    analytics/auth redis appendfsync off ARM based devices #13
-
-1.0.0 b34
-    analytics/auth should include inspect.lua #9
-    analytics/auth openresty 1.7.4.1 update #10
-
-1.0.0 b33
-    analytics/auth redis update 2.8.17 #8
-
-1.0.0 b32
-    analytics/auth redis update 2.8.15 #7 
-    analytics/auth lua-resty-smtp SMTP AUTH, SSL support #6
-    analytics/auth openresty 1.7.4.1 RC2 update #5
-
-1.0.0 b31
-    analytics/auth redis update 2.8.14 #4
-
-1.0.0 b30
-    analytics/auth redis.conf AOF, RDB modes fix #3
-
-1.0.0 b29
-    analytics/auth memcached removal #2
-
-1.0.0 b28
-    separate http and redis startup scripts #1
+  1.0.115
+    rebranding kronometrix to kauth
