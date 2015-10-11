@@ -2,7 +2,7 @@ name: "kauth"
 version: "1.0.0"
 origin: "sysutils/kauth"
 comment: "A time-series data monitoring and analysis system. Authenticator module"
-arch: "freebsd:11:arm" 
+arch: "freebsd:10:arm" 
 desc: "Consistent data recording across various types of systems, easy access to raw data, built to handle data messages in real-time and designed for time series analysis."
 maintainer: support@kronometrix.org
 www: https://www.kronometrix.org
