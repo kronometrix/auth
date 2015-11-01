@@ -94,7 +94,8 @@ case "$1" in
       stop
       ;;
    restart)
-      stop
+      stop 
+      sleep 1
       start
       ;;
    *)
