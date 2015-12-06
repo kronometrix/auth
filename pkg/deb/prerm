@@ -1,9 +1,9 @@
 #!/bin/sh
 
-update-rc.d -f kronometrix_auth remove >/dev/null 2>&1 || : 
+update-rc.d -f kauth remove >/dev/null 2>&1 || : 
 
 # uinstall
-if [ -L /etc/init.d/kronometrix_auth ]; then
-    /etc/init.d/kronometrix_auth stop >/dev/null 2>&1 || :
-    rm -f /etc/init.d/kronometrix_auth || :
+if [ -L /etc/init.d/kauth ]; then
+    /etc/init.d/kauth stop >/dev/null 2>&1 || :
+    rm -f /etc/init.d/kauth || :
 fi
