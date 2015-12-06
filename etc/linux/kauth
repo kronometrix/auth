@@ -3,7 +3,7 @@
 # chkconfig: 2345 96 10
 # description: kronometrix analytics appliance authentication
 # 
-# /etc/init.d/kronometrix_auth
+# /etc/init.d/kauth
 #
 # The MIT License (MIT)
 #
