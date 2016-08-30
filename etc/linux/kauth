@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # chkconfig: 2345 96 10
-# description: kronometrix analytics appliance authentication
+# description: kronometrix auth data analytics platform
 # 
 # /etc/init.d/kauth
 #
