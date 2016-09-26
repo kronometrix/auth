@@ -1,9 +1,9 @@
-worker_processes  2;
+worker_processes  1;
 error_log logs/error.log;
 
 events {
     use epoll;
-    worker_connections 4096;
+    worker_connections 16384;
     multi_accept on;
 }
 
@@ -41,7 +41,7 @@ http {
 	init_worker_by_lua_file "../app/timer.lua";
 
 	server {
-		listen 9001;
+		listen 80;
 		index index.html;
 		root ../static;
 

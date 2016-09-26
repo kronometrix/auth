@@ -41,7 +41,7 @@ http {
 	init_worker_by_lua_file "../app/timer.lua";
 
 	server {
-		listen 9001;
+		listen 80;
 		index index.html;
 		root ../static;
 
