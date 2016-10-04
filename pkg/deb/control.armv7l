@@ -5,4 +5,7 @@ Priority: extra
 Version: 1.0.0-b10
 Maintainer: support@kronometrix.com
 Homepage: http://www.kronometrix.com/
-Description: A real-time, event based data analytics platform for ICT, IoT, Environmental Monitoring and Meteorology, focusing on deep domain expertise and prescriptive analytics.
+Description: Kronometrix Data Analytics Platform, Auth module
+ A real-time, event based data analytics platform for ICT, IoT, 
+ Environmental Monitoring and Meteorology, focusing on deep domain 
+ expertise and prescriptive analytics.
