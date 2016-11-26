@@ -51,7 +51,7 @@ port 0
 # will silently truncate it to the value of /proc/sys/net/core/somaxconn so
 # make sure to raise both the value of somaxconn and tcp_max_syn_backlog
 # in order to get the desired effect.
-tcp-backlog 1024
+tcp-backlog 16384
 
 # By default Redis listens for connections from all the network interfaces
 # available on the server. It is possible to listen to just one or multiple
@@ -393,7 +393,7 @@ slave-read-only yes
 # limit for maxmemory so that there is some free RAM on the system for slave
 # output buffers (but this is not needed if the policy is 'noeviction').
 #
-maxmemory 256mb
+maxmemory 512mb
 
 # MAXMEMORY POLICY: how Redis will select what to remove when maxmemory
 # is reached. You can select among five behaviors:
