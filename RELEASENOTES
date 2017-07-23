@@ -1,7 +1,11 @@
 
-Kronometrix Authenticator Package
+Kronometrix Authentication Module
 
 Releases
+
+  1.4.3
+    Update OpenResty 1.11.2.4 Security Fix
+    Update Redis 3.2.8
 
   1.3.1
     update redis-3.0.4 
