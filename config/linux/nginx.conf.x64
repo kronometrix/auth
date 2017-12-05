@@ -8,44 +8,43 @@ events {
 }
 
 http {
-        upstream kernel {
-            server 127.0.0.1:9002;
-            keepalive 32;
-        }
+    upstream kernel {
+        server 127.0.0.1:9002;
+        keepalive 32;
+    }
 
-	include       mime.types;
-	default_type  application/octet-stream;
+    include       mime.types;
+    default_type  application/octet-stream;
 
-	# access_log logs/access.log.gz combined gzip flush=5m;
-        access_log off;
+    # access_log logs/access.log.gz combined gzip flush=5m;
+    access_log off;
 
-        resolver 8.8.8.8;
+    resolver 8.8.8.8;
 
-        ## General Options
-	sendfile       on;
-        sendfile_max_chunk  512k;
-	tcp_nopush     on;
-	tcp_nodelay    on;
+    ## General Options
+    sendfile       off;   # disable double caching for ZFS
+    tcp_nopush     off;   # sendfile=off so tcp_nopush can not be used
+    tcp_nodelay    on;
 
-	keepalive_timeout 60;
-        reset_timedout_connection on;
+    keepalive_timeout 60;
+    reset_timedout_connection on;
 
-	gzip off;
+    gzip off;
 
-        lua_package_path ";;${prefix}../app/?.lua;";
-        lua_code_cache on;
-        lua_shared_dict sessions 10m;
-        lua_shared_dict my_limit_req_store 100m;
-        lua_shared_dict timer_locks 1m;
-        init_by_lua_file "../app/init.lua";
-	init_worker_by_lua_file "../app/timer.lua";
+    lua_package_path ";;${prefix}../app/?.lua;";
+    lua_code_cache on;
+    lua_shared_dict sessions 10m;
+    lua_shared_dict my_limit_req_store 100m;
+    lua_shared_dict timer_locks 1m;
+    init_by_lua_file "../app/init.lua";
+    init_worker_by_lua_file "../app/timer.lua";
 
-	server {
-		listen 80;
-		index index.html;
-		root ../static;
+    server {
+        listen 80;
+        index index.html;
+        root ../static;
 
-		# include application routes; this path is relative to this conf file!
-		include ../../app/conf/*.conf;
-	}
+        # include application routes; this path is relative to this conf file!
+        include ../../app/conf/*.conf;
+    }
 }
