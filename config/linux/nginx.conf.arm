@@ -13,6 +13,9 @@ http {
         keepalive 32;
     }
 
+    ssl_session_cache   shared:SSL:10m;
+    ssl_session_timeout 10m;
+
     include       mime.types;
     default_type  application/octet-stream;
 
@@ -42,6 +45,22 @@ http {
 
     server {
         listen 80;
+        index index.html;
+        root ../static;
+
+        # include application routes; this path is relative to this conf file!
+        # enable this to have HTTP and HTTPS access
+        # include ../../app/conf/*.conf;
+
+        # HTTPS only
+        include ../../app/conf/unsecured/*.conf;
+    }
+
+    server {
+        listen 443 ssl;
+        ssl_certificate k50.crt;
+        ssl_certificate_key k50.key;
+
         index index.html;
         root ../static;
 
