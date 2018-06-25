@@ -66,4 +66,13 @@ http {
         # include application routes; this path is relative to this conf file!
         include ../../app/conf/*.conf;
     }
+
+    server {
+        listen 127.0.0.1:9101;
+        index index.html;
+        root ../static;
+
+        # include application routes; this path is relative to this conf file!
+        include ../../app/conf/auth-api.conf;
+    }
 }
