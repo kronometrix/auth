@@ -1,7 +1,7 @@
-name: "kauth"
+name: "kadmin"
 version: "1.0.0"
-origin: "sysutils/kauth"
-comment: "Kronometrix Data Analytics Platform, Auth module"
+origin: "sysutils/kadmin"
+comment: "Kronometrix Data Analytics Platform, Admin module"
 arch: "freebsd:10:amd64" 
 desc: "A real-time, event based data analytics platform for ICT, IoT, Environmental Monitoring and Meteorology, focusing on deep domain expertise and prescriptive analytics."
 maintainer: support@kronometrix.com
