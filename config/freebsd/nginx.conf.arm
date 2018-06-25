@@ -9,7 +9,7 @@ events {
 
 http {
     upstream kernel {
-        server 127.0.0.1:9002;
+        server 127.0.0.1:9102;
         keepalive 32;
     }
 
@@ -38,26 +38,20 @@ http {
     lua_package_path ";;${prefix}../app/?.lua;";
     lua_code_cache on;
     lua_shared_dict sessions 10m;
-    lua_shared_dict my_limit_req_store 25m;
-    lua_shared_dict timer_locks 1m;
+    lua_shared_dict profile 10m;
     init_by_lua_file "../app/init.lua";
-    init_worker_by_lua_file "../app/timer.lua";
 
     server {
         listen 8001;
         index index.html;
         root ../static;
-
-        # include application routes; this path is relative to this conf file!
-        # enable this to have HTTP and HTTPS access
-        # include ../../app/conf/*.conf;
-
+    
         # HTTPS only
         include ../../app/conf/unsecured/*.conf;
     }
 
     server {
-        listen 443 ssl;
+        listen 4430 ssl;
         ssl_certificate k50.crt;
         ssl_certificate_key k50.key;
 
