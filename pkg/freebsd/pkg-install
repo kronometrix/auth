@@ -14,17 +14,17 @@ if [ $2 == "PRE-INSTALL" ]; then
 fi
 
 if [ $2 == "POST-INSTALL" ]; then
-    chown -R krmx:krmx /opt/kronometrix/auth
-    cp /opt/kronometrix/auth/etc/rc/kauth /etc/rc.d/
-    /etc/rc.d/kauth onestart
+    chown -R krmx:krmx /opt/kronometrix/admin
+    cp /opt/kronometrix/admin/etc/rc/kadmin /etc/rc.d/
+    /etc/rc.d/kadmin onestart
 
     # install service
-    grep kauth ${RC_CONF} >/dev/null 2>&1
+    grep kadmin ${RC_CONF} >/dev/null 2>&1
 
     if [ $? -eq 1 ]; then
         # add the service
-        echo "kauth_enable=\"YES\"" >> ${RC_CONF}
-        echo "kauth_user=\"krmx\"" >> ${RC_CONF}
+        echo "kadmin_enable=\"YES\"" >> ${RC_CONF}
+        echo "kadmin_user=\"krmx\"" >> ${RC_CONF}
         if [ $? -eq 1 ]; then
             echo "Error: cannot activate service, exit now"
             exit 1
