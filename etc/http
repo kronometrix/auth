@@ -33,7 +33,7 @@
 RETVAL=0
 OS_NAME=`uname -s`
 
-BASEDIR="/opt/kronometrix/admin"
+BASEDIR="/opt/kronometrix/auth"
 HTTP_CMD="${BASEDIR}/nginx/sbin/nginx"
 HTTP_CONF="${BASEDIR}/nginx/conf/nginx.conf"
 HTTP_PID="${BASEDIR}/nginx/logs/nginx.pid"
@@ -43,7 +43,7 @@ test -d ${BASEDIR} || exit 0
 
 
 start() {
-    echo "Starting Kronometrix admin http service"
+    echo "Starting Kronometrix auth http service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
@@ -72,7 +72,7 @@ start() {
 
 
 stop() {
-    echo "Stopping Kronometrix admin service"
+    echo "Stopping Kronometrix auth service"
 
     if [ "X${OS_NAME}" = "XSunOS" ]; then
         echo " ${rep} service: \c"
