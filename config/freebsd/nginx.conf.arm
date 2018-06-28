@@ -58,8 +58,8 @@ http {
 
     server {
         listen 443 ssl;
-        ssl_certificate k500.crt;
-        ssl_certificate_key k500.key;
+        ssl_certificate auth.crt;
+        ssl_certificate_key auth.key;
 
         index index.html;
         root ../static;
