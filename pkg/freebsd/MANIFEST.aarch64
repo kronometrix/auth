@@ -1,0 +1,16 @@
+name: "kauth"
+version: "1.0.0"
+origin: "sysutils/kauth"
+comment: "Kronometrix Data Analytics Platform, Auth module"
+arch: "freebsd:12:aarch64"
+desc: "A real-time, event based data analytics platform for ICT, IoT, Environmental Monitoring and Meteorology, focusing on deep domain expertise and prescriptive analytics."
+maintainer: support@kronometrix.com
+www: https://www.kronometrix.com
+prefix: /opt/kronometrix
+users: [
+    "krmx"
+]
+groups: [
+    "krmx"
+]
+licenses: ["BSDv3"]
