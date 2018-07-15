@@ -32,7 +32,7 @@ http {
 
     keepalive_timeout 60;
     reset_timedout_connection on;
-
+    etag off;
     gzip off;
 
     lua_package_path ";;${prefix}../app/?.lua;";
