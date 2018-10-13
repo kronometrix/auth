@@ -13,4 +13,4 @@ users: [
 groups: [
     "krmx"
 ]
-licenses: ["MIT"]
+licenses: ["BSDv3"]
