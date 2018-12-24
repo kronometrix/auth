@@ -3,6 +3,16 @@ Kronometrix Authentication Module
 
 Releases
 
-  1.8.1 28 June 2018
+  1.8.6 December 2018
 
-  1.8.0 20 June 2018
+  Update OpenResty latest 1.15.6.1 (ARM64 support)
+  Update Redis latest 4.0.12 (ARM64 support)
+  New platform management and observability features
+  Smart Alarms improvements
+  Health-check data feed improvements
+  New Summary Statistic Functions and improvements
+  Faster built-in applications, load and rendering time
+  ICT End-User performance availability fixes
+  Indoor Air Quality user interface fixes and improvements
+  Aviation meteorology improvements
+  General meteorology improvements
